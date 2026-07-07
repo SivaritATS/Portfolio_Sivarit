@@ -1,0 +1,193 @@
+/* นำเข้า Font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Light Theme (Default) */
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --surface-2: #F3F4F6;
+  --ink: #111827;
+  --muted: #6B7280;
+  --accent: #2563EB; /* Clean Blue */
+  --accent-soft: rgba(37, 99, 235, 0.1);
+  --line: #E5E7EB;
+  --radius: 12px;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme */
+  --bg: #0F172A;
+  --surface: #1E293B;
+  --surface-2: #334155;
+  --ink: #F8FAFC;
+  --muted: #94A3B8;
+  --accent: #3B82F6;
+  --accent-soft: rgba(59, 130, 246, 0.15);
+  --line: #334155;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Common Layout Utilities */
+.eyebrow {
+  font-family: 'JetBrains Mono';
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: inline-block;
+  border: 1px solid var(--accent-soft);
+  background: var(--accent-soft);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.btn {
+  font-family: 'JetBrains Mono';
+  font-size: 0.85rem;
+  padding: 13px 24px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: .25s;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #FFFFFF;
+  font-weight: 500;
+  box-shadow: 0 4px 14px var(--accent-soft);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--accent-soft);
+}
+
+.btn-ghost {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--surface-2);
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socials a {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: .25s;
+}
+
+.socials a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 34px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section-head p {
+  color: var(--muted);
+  max-width: 440px;
+}
+
+/* Section Fade Transitions */
+section {
+  display: none;
+  padding: 80px 0 40px;
+}
+
+section.active {
+  display: block;
+  animation: fade .5s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
