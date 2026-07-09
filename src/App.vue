@@ -2,21 +2,12 @@
   <div>
     <Navbar :current-page="currentPage" :theme="theme" @navigate="goTo" @toggle-theme="toggleTheme" />
 
-    <HomeSection 
-      :class="{ active: currentPage === 'home' }" 
-      :projects="projects"
-      :skills-list="skillsList"
-      @navigate="goTo"
-    />
+    <HomeSection :class="{ active: currentPage === 'home' }" :projects="projects" :skills-list="skillsList"
+      @navigate="goTo" />
 
-    <ProjectsSection 
-      :class="{ active: currentPage === 'projects' }" 
-      :projects="projects" 
-    />
+    <ProjectsSection :class="{ active: currentPage === 'projects' }" :projects="projects" />
 
-    <ContactSection 
-      :class="{ active: currentPage === 'contact' }" 
-    />
+    <ContactSection :class="{ active: currentPage === 'contact' }" />
 
     <Footer />
   </div>
@@ -66,7 +57,8 @@ const projects = ref([
     tag: 'Next JS',
     thumbClass: 'thumb-1',
     desc: 'A comprehensive system for tracking and managing maintenance requests.',
-    link: 'https://github.com/SivaritATS/maintenance-system'
+    link: 'https://github.com/SivaritATS/maintenance-system',
+    liveLink: 'https://maintenance-system-tczo.vercel.app/'
   },
   {
     id: '02',
@@ -74,7 +66,8 @@ const projects = ref([
     tag: 'Vue JS',
     thumbClass: 'thumb-2',
     desc: 'Complete booking and reservation system for managing resources effectively.',
-    link: 'https://github.com/SivaritATS/Booking-Item-System-Final'
+    link: 'https://github.com/SivaritATS/Booking-Item-System-Final',
+    liveLink: 'https://booking-item-system-final.vercel.app/'
   },
   {
     id: '03',
@@ -90,7 +83,8 @@ const projects = ref([
     tag: 'Next JS',
     thumbClass: 'thumb-4',
     desc: 'A Next.js web application providing statistics and information for Valorant.',
-    link: 'https://github.com/SivaritATS/nextjs-web-valorant'
+    link: 'https://github.com/SivaritATS/nextjs-web-valorant',
+    liveLink: 'https://nextjs-web-valorant.vercel.app/'
   },
   {
     id: '05',
@@ -106,7 +100,8 @@ const projects = ref([
     tag: 'Vue JS',
     thumbClass: 'thumb-6',
     desc: 'My personal portfolio website built with Vue.js to showcase my projects and skills.',
-    link: 'https://github.com/SivaritATS/Portfolio_Sivarit'
+    link: 'https://github.com/SivaritATS/Portfolio_Sivarit',
+    liveLink: 'https://portfolio-sivarit.vercel.app/'
   }
 ]);
 </script>

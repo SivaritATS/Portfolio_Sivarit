@@ -1,21 +1,39 @@
 <template>
   <div class="card">
-    <div :class="['card-thumb', project.thumbClass]">{{ project.title.toUpperCase() }} — {{ project.id }}</div>
+    <div :class="['card-thumb', previewImage ? '' : project.thumbClass]">
+      <img v-if="previewImage" :src="previewImage" :alt="project.title" class="project-img" />
+      <template v-else>{{ project.title.toUpperCase() }} — {{ project.id }}</template>
+    </div>
     <div class="card-body">
       <span class="tag">{{ project.tag }}</span>
       <h4>{{ project.title }}</h4>
       <p>{{ project.desc }}</p>
-      <a class="link" :href="project.link" target="_blank">View on GitHub →</a>
+      <div class="card-links">
+        <a class="link" :href="project.link" target="_blank">View on GitHub →</a>
+        <a v-if="project.liveLink" class="link live-link" :href="project.liveLink" target="_blank">Live Demo</a>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue';
+
+const props = defineProps({
   project: {
     type: Object,
     required: true
   }
+});
+
+const previewImage = computed(() => {
+  if (props.project.image) {
+    return props.project.image;
+  }
+  if (props.project.liveLink) {
+    return `https://api.microlink.io/?url=${encodeURIComponent(props.project.liveLink)}&screenshot=true&embed=screenshot.url`;
+  }
+  return '';
 });
 </script>
 
@@ -44,6 +62,12 @@ defineProps({
   font-size: 0.75rem;
   color: #FFFFFF;
   letter-spacing: 1px;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .thumb-1 {
@@ -99,5 +123,16 @@ defineProps({
   font-family: 'JetBrains Mono';
   font-size: 0.78rem;
   color: var(--accent);
+  text-decoration: none;
+}
+
+.card-body a.link:hover {
+  text-decoration: underline;
+}
+
+.card-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>
