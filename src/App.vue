@@ -99,6 +99,14 @@ const projects = ref([
     thumbClass: 'thumb-5',
     desc: 'A mobile application guide for Valorant built with Flutter.',
     link: 'https://github.com/SivaritATS/MoblieApp_Project'
+  },
+  {
+    id: '06',
+    title: 'Portfolio Sivarit',
+    tag: 'Vue JS',
+    thumbClass: 'thumb-6',
+    desc: 'My personal portfolio website built with Vue.js to showcase my projects and skills.',
+    link: 'https://github.com/SivaritATS/Portfolio_Sivarit'
   }
 ]);
 </script>

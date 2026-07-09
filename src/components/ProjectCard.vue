@@ -66,6 +66,10 @@ defineProps({
   background: linear-gradient(135deg, #06B6D4, #0891B2);
 }
 
+.thumb-6 {
+  background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+}
+
 .card-body {
   padding: 22px;
 }
