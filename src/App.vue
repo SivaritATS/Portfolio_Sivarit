@@ -84,7 +84,7 @@ const projects = ref([
     thumbClass: 'thumb-4',
     desc: 'A Next.js web application providing statistics and information for Valorant.',
     link: 'https://github.com/SivaritATS/nextjs-web-valorant',
-    liveLink: 'https://nextjs-web-valorant.vercel.app/'
+    liveLink: 'https://nextjs-web-valorant-one.vercel.app/'
   },
   {
     id: '05',
